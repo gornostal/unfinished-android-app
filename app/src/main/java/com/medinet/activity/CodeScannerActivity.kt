@@ -1,9 +1,14 @@
-package com.medinet
+package com.medinet.activity
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.budiyev.android.codescanner.*
+import com.medinet.R
 
 
 class CodeScannerActivity : AppCompatActivity() {
@@ -12,6 +17,9 @@ class CodeScannerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_code_scanner)
+
+        requestCameraPermission()
+
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
 
         codeScanner = CodeScanner(this, scannerView)
@@ -43,6 +51,16 @@ class CodeScannerActivity : AppCompatActivity() {
 
         scannerView.setOnClickListener {
             codeScanner.startPreview()
+        }
+    }
+
+    private fun requestCameraPermission() {
+        if (ContextCompat.checkSelfPermission(
+                applicationContext,
+                Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 50)
         }
     }
 
