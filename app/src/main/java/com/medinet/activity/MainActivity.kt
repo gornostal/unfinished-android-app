@@ -11,11 +11,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        scanQrCodeButton.setOnClickListener { switchToQrScanner() }
+        scanQrCodeButton.setOnClickListener { switchToLoginActivity() }
     }
 
-    private fun switchToQrScanner() {
-        val intent = Intent(this, CodeScannerActivity::class.java)
+    private fun switchToLoginActivity() {
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
         startActivity(intent)
     }
 

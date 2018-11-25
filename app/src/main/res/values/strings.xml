@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Medinet</string>
+    <string name="title_activity_login">Log in</string>
+    <!-- Strings related to login -->
+    <string name="prompt_password">Password</string>
+    <string name="prompt_mnemonic">Mnemonic phrase</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_use_and_sign_in">Use and sign in</string>
+    <string name="new_pwd">Because you\'ve never used this password before you have to enter a mnemonic phrase for this password</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="dummy_mnemonic">sell artefact job unit marble clarify focus dune matrix ramp point alone gravity gasp
+        piece dirt pattern forward enforce limb slogan expose nation laptop
+    </string>
 </resources>
